@@ -1,23 +1,25 @@
 package co.interleap.courses.tdd;
 
 public class Ride {
+    public static final int FARE_PER_KM = 10;
+    public static final int FARE_PER_MINUTE = 1;
+    private final double distance;
     private final int duration;
-    private final int time;
 
-    public Ride(int duration, int time) {
+    public Ride(double distance, int duration) {
+        this.distance = distance;
         this.duration = duration;
-        this.time = time;
+    }
+
+    public double getDistance() {
+        return distance;
     }
 
     public int getDuration() {
         return duration;
     }
 
-    public int getTime() {
-        return time;
-    }
-
-    public double create() {
-        return getDuration() * StatementGenerator.FARE_PER_KM + getTime() * StatementGenerator.FARE_PER_MINUTE;
+    public double invoice() {
+        return getDistance() * FARE_PER_KM + getDuration() * FARE_PER_MINUTE;
     }
 }

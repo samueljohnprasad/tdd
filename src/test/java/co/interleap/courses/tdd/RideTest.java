@@ -5,15 +5,16 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class RideTest {
-
     @Test
     public void shouldCalculateFareForAGivenTime(){
-        assertEquals(1, new Ride(0, 1).create(), .01);
+        double fare = new Ride(0, 1).invoice();
+        assertEquals(1, fare, .01);
     }
 
     @Test
-    public void shouldCalculateFareGivenADistanceAndTime(){
-        assertEquals(32, new Ride(3, 2).create(), .01);
+    public void shouldCalculateFareForAGivenDistanceAndDuration(){
+        double fare = new Ride(3, 2).invoice();
+        assertEquals(32, fare, .01);
     }
 
 
