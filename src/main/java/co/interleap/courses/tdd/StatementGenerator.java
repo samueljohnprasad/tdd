@@ -1,24 +1,30 @@
 package co.interleap.courses.tdd;
 
+import java.util.List;
+
 public class StatementGenerator {
 	
-	private int distance;
-	private int time;
+	
 	private static final int FARE_PER_KM=10;
 	private static final int FARE_PER_MINUTE=1;
-	StatementGenerator(int distance, int time){
-		this.time=time;
-		this.distance=distance;
-		
-	}
 	
-	public int create() {
+	public int create(List<Ride> list) {
+		int count =0;
+		for(Ride ride: list) {
+			int distance=ride.getDistance();
+			int minutes=ride.getMinutes();
+			
+			if(distance<0 ||minutes <0) {
+				  continue;
+			}
+			
+			count+=((distance*FARE_PER_KM)+(minutes*FARE_PER_MINUTE));
+			
+		}
 		
-		 if(distance< -1 || time< -1) {
-			 return 0;
-		 }
 		
-		return ((distance*FARE_PER_KM)+(time*FARE_PER_MINUTE));
+		//return 
+		return count;
 	}
 
 }
