@@ -23,4 +23,12 @@ public class VowelCounterTest {
     	assertEquals(expected,actual);
     	
     }
+    
+    @Test
+    public void MultipleVowelsAndNoConsonats() {
+    	int expected =5;
+    	int actual=new VowelCounter().vowelCounter("aieuo");
+    	assertEquals(expected,actual);
+    	
+    }
 }
