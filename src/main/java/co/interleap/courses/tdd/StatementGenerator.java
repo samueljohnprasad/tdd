@@ -11,20 +11,22 @@ public class StatementGenerator {
 	public int create(List<Ride> list) {
 		int count =0;
 		for(Ride ride: list) {
-			int distance=ride.getDistance();
-			int minutes=ride.getMinutes();
-			
-			if(distance<0 ||minutes <0) {
+		
+	    	if(ride.getMinutes()<0 ||ride.getDistance() <0) {
 				  continue;
 			}
 			
-			count+=((distance*FARE_PER_KM)+(minutes*FARE_PER_MINUTE));
+			count+=fare(ride);
 			
 		}
 		
 		
 		//return 
 		return count;
+	}
+	
+	private int fare(Ride ride) {
+		return ((ride.getDistance()*FARE_PER_KM)+(ride.getMinutes()*FARE_PER_MINUTE));
 	}
 
 }
