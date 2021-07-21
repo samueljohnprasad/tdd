@@ -15,4 +15,12 @@ public class VowelCounterTest {
     	
     	
     }
+    
+    @Test
+    public void singleVowelAndNoConsonats() {
+    	int expected =1;
+    	int actual=new VowelCounter().vowelCounter("a");
+    	assertEquals(expected,actual);
+    	
+    }
 }
